@@ -79,7 +79,7 @@
                     </span>
                 </div>
                 <div class="hidden md:flex gap-8">
-                    <a href="#projects" class="text-sm font-semibold text-slate-dark hover:text-cobalt-blue transition">Active Reports</a>
+                    <a href="#projects" class="text-sm font-semibold text-slate-dark hover:text-cobalt-blue transition">Reports</a>
                     <a href="#about" class="text-sm font-semibold text-slate-dark hover:text-cobalt-blue transition">Why PropProof</a>
                     <a href="#process" class="text-sm font-semibold text-slate-dark hover:text-cobalt-blue transition">How It Works</a>
                     <a href="#insights" class="text-sm font-semibold text-slate-dark hover:text-cobalt-blue transition">Guides</a>
@@ -110,16 +110,16 @@
         </a>
     </header>
 
-    <!-- Active Projects Grid with Assets Image -->
+    <!-- Project Reports Grid -->
     <section id="projects" class="py-20 bg-slate-light border-y border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-extrabold text-steel-navy mb-3">Active Project Reports</h2>
+                <h2 class="text-3xl font-extrabold text-steel-navy mb-3">Project Reports</h2>
                 <p class="text-slate-mid">Select a development below to review our independent risk and contract breakdown briefs.</p>
             </div>
             <div class="max-w-3xl mx-auto">
                 <div class="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 overflow-hidden flex flex-col md:flex-row">
-                    <!-- Project Image Container (Linked to Assets Folder) -->
+                    <!-- Project Image Container -->
                     <div class="md:w-1/2 bg-slate-100 relative min-h-[240px] flex items-center justify-center border-b md:border-b-0 md:border-r border-gray-100 group overflow-hidden">
                         <img src="assets/aveline.webp" alt="Godrej Aveline" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent pointer-events-none"></div>
@@ -229,10 +229,10 @@
                         <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-cobalt-blue mb-6">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-steel-navy mb-3">What a Standard Real Estate Lawyer Misses in Your Builder Contract</h3>
-                        <p class="text-sm text-slate-mid mb-6 leading-relaxed">Understand the difference between legal title verification and commercial agreement economics.</p>
+                        <h3 class="text-xl font-bold text-steel-navy mb-3">What Standard Document Checks Miss in Your Builder Contract</h3>
+                        <p class="text-sm text-slate-mid mb-6 leading-relaxed">Understand the difference between basic ownership verification and commercial agreement economics.</p>
                     </div>
-                    <a href="guides/lawyer-vs-data.html" class="inline-flex items-center text-cobalt-blue font-semibold text-sm hover:text-blue-700 transition">
+                    <a href="guides/contract-blind-spots.html" class="inline-flex items-center text-cobalt-blue font-semibold text-sm hover:text-blue-700 transition">
                         Read Guide <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </a>
                 </div>
@@ -246,7 +246,7 @@
             <h2 class="text-2xl font-bold text-steel-navy mb-3 text-center">Want a Report for Another Project?</h2>
             <p class="text-center text-slate-mid mb-8 text-sm">Submit your project details below. We prioritize our research queue based on buyer demand and government transparency records.</p>
             <form onsubmit="submitFormAjax(event, this)" class="flex flex-col gap-4">
-                <input type="hidden" name="lead_type" value="Custom_Audit">
+                <input type="hidden" name="lead_type" value="Custom_Request">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input type="text" name="project_details" placeholder="Project Name & City (e.g., Prestige City, BLR)" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cobalt-blue text-sm bg-white">
                     <input type="text" name="rera_number" placeholder="RERA Registration Number (Optional)" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cobalt-blue text-sm bg-white">
@@ -277,7 +277,7 @@
                         </span>
                     </summary>
                     <div class="p-6 pt-0 text-slate-mid text-sm leading-relaxed border-t border-gray-50 mt-2 pt-4">
-                        <span class="font-bold text-slate-dark">Yes, our reports complement your lawyer's work.</span> While a lawyer ensures your paperwork is legally binding, we analyze the financial health, hidden developer clauses, and government progress data so you know what questions to ask before you sign. We provide your legal team with the specific data anomalies they need to negotiate and protect your capital.
+                        <span class="font-bold text-slate-dark">Yes, our reports complement your document checks.</span> While a lawyer ensures your paperwork is legally binding, we analyze the financial health, hidden developer clauses, and government progress data so you know what questions to ask before you sign. We provide your counsel with the specific data anomalies they need to negotiate and protect your capital.
                     </div>
                 </details>
                 <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200">
