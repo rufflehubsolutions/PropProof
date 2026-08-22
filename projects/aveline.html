@@ -34,7 +34,21 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { 'steel-navy': '#1B365D', 'cobalt-blue': '#2563EB', 'slate-light': '#F8FAFC', 'slate-mid': '#64748B', 'slate-dark': '#475569' }
+                    colors: { 'steel-navy': '#1B365D', 'cobalt-blue': '#2563EB', 'slate-light': '#F8FAFC', 'slate-mid': '#64748B', 'slate-dark': '#475569' },
+                    keyframes: {
+                        bounceLeft: {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '50%': { transform: 'translateX(-4px)' },
+                        },
+                        bounceRight: {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '50%': { transform: 'translateX(4px)' },
+                        }
+                    },
+                    animation: {
+                        bounceLeft: 'bounceLeft 1.5s ease-in-out infinite',
+                        bounceRight: 'bounceRight 1.5s ease-in-out infinite',
+                    }
                 }
             }
         }
@@ -57,7 +71,7 @@
 
         /* Hide Scrollbar for Mobile Carousel */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; }
     </style>
 </head>
 <body class="font-sans text-slate-dark antialiased bg-slate-50 overflow-x-hidden">
@@ -226,30 +240,59 @@
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="text-center mb-12 reveal delay-100">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-steel-navy mb-4">Select Your Report Package</h2>
                 <p class="text-base text-slate-mid max-w-2xl mx-auto">From free entry-level insights to comprehensive contract playbooks, arm yourself with data before you negotiate.</p>
             </div>
 
-            <!-- Mobile Swipe Hint (Animated) - Placed above cards so it's seen first -->
-            <div class="md:hidden text-center mb-6 text-sm font-bold text-cobalt-blue flex items-center justify-center gap-2 animate-pulse">
+            <!-- Mobile Swipe Hint (Animated Bouncing Arrows) -->
+            <div class="md:hidden text-center mb-6 text-sm font-bold text-cobalt-blue flex items-center justify-center gap-3">
+                <span class="animate-bounceLeft text-xl leading-none">&larr;</span> 
                 Swipe to compare packages 
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                <span class="animate-bounceRight text-xl leading-none">&rarr;</span>
             </div>
 
             <!-- Swipeable Mobile Carousel / Desktop Grid -->
-            <!-- Flex Order strategy: Mobile -> Gold(1), Exec(2), Free(3). Desktop -> Free(1), Gold(2), Exec(3). -->
-            <!-- NOTE: Changed width to w-[80vw], added scroll-pl-6 and px-6 padding to guarantee PEEK effect -->
-            <div class="flex flex-nowrap overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 md:pb-0 md:grid md:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto px-6 md:px-0 scroll-pl-6 md:scroll-pl-0">
+            <!-- Note: px-[12vw] padding natively centers a 76vw card and forces 12% peek on sides -->
+            <div id="pricing-carousel" class="flex flex-nowrap overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 md:pb-0 md:grid md:grid-cols-3 gap-5 md:gap-8 max-w-7xl mx-auto px-[12vw] md:px-0 relative">
                 
-                <!-- Tier 3: Gold (₹3,999) - Master (Mobile Order: 1, Desktop Order: 2) -->
-                <div class="order-1 md:order-2 snap-start w-[80vw] flex-shrink-0 md:w-auto bg-white rounded-2xl p-1 border-4 border-gold shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal delay-200 flex flex-col transform md:-translate-y-4 relative z-10">
-                    <div class="bg-white rounded-xl p-6 md:p-8 flex flex-col h-full relative overflow-hidden">
+                <!-- Tier 1: Silver (Free Kit) -->
+                <div class="snap-center w-[76vw] md:w-auto flex-shrink-0 bg-white rounded-2xl p-1 border-4 border-silver shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col group">
+                    <div class="bg-white rounded-xl p-5 md:p-8 flex flex-col h-full relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-slate-100 text-slate-600 font-bold text-[10px] md:text-xs px-3 py-1 rounded-bl-lg shadow-sm">Starter</div>
+                        
+                        <div class="border border-slate-400 text-slate-700 rounded-lg py-3 px-4 mb-6 text-center shadow-sm">
+                            <h3 class="text-lg font-bold leading-tight">Buyer's Starter Kit</h3>
+                        </div>
+                        
+                        <p class="text-slate-mid text-sm mb-6 pb-6 border-b border-gray-100 text-center">Essential baseline tools to start your evaluation.</p>
+                        
+                        <div class="text-4xl font-extrabold text-slate-700 mb-6 text-center">Free</div>
+                        
+                        <ul class="space-y-4 text-sm text-slate-dark mb-8 flex-grow">
+                            <li class="flex items-start gap-3"><span class="text-slate-500 font-bold mt-0.5">✓</span> <span><strong class="text-slate-800">One Major Contract Red Flag:</strong> A hidden penalty clause builders use to trap your capital.</span></li>
+                            <li class="flex items-start gap-3"><span class="text-slate-500 font-bold mt-0.5">✓</span> <span><strong class="text-slate-800">Negotiation Cheat Sheet:</strong> 5 questions to ask the sales team.</span></li>
+                            <li class="flex items-start gap-3"><span class="text-slate-500 font-bold mt-0.5">✓</span> <span><strong class="text-slate-800">Master Report TOC:</strong> See what the Complete Intelligence Suite uncovers.</span></li>
+                        </ul>
+
+                        <div class="mt-auto pt-6 border-t border-gray-100 bg-slate-50 -mx-5 md:-mx-8 -mb-5 md:-mb-8 p-5 md:p-8 rounded-b-xl">
+                            <form onsubmit="submitStarterKit(event, this)" class="flex flex-col gap-3">
+                                <input type="hidden" name="lead_type" value="Starter_Kit_Aveline">
+                                <input type="email" name="email" placeholder="Enter email for access" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-slate-500 text-sm">
+                                <button type="submit" class="bg-slate-700 text-white w-full py-3 rounded-md font-bold text-sm hover:bg-slate-800 transition shadow-md whitespace-nowrap">Unlock Free Kit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tier 3: Gold (₹3,999) - Centered -->
+                <div id="gold-card" class="snap-center w-[76vw] md:w-auto flex-shrink-0 bg-white rounded-2xl p-1 border-4 border-gold shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col transform md:-translate-y-4 relative z-10">
+                    <div class="bg-white rounded-xl p-5 md:p-8 flex flex-col h-full relative overflow-hidden">
                         <div class="absolute top-0 right-0 bg-yellow-100 text-yellow-700 font-bold text-[10px] md:text-xs px-3 py-1 rounded-bl-lg shadow-sm">Master</div>
                         
                         <div class="border border-yellow-600 text-yellow-700 rounded-lg py-3 px-4 mb-6 text-center shadow-sm">
-                            <h3 class="text-lg font-bold">Complete Intelligence Suite</h3>
+                            <h3 class="text-lg font-bold leading-tight">Complete Intelligence Suite</h3>
                         </div>
 
                         <p class="text-slate-mid text-sm mb-6 pb-6 border-b border-gray-100 text-center">For buyers ready to commit booking capital and negotiate.</p>
@@ -280,13 +323,13 @@
                     </div>
                 </div>
 
-                <!-- Tier 2: Cobalt (₹499) - Executive (Mobile Order: 2, Desktop Order: 3) -->
-                <div class="order-2 md:order-3 snap-start w-[80vw] flex-shrink-0 md:w-auto bg-white rounded-2xl p-1 border-4 border-cobalt shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 reveal delay-300 flex flex-col">
-                    <div class="bg-white rounded-xl p-6 md:p-8 flex flex-col h-full relative overflow-hidden">
+                <!-- Tier 2: Cobalt (₹499) - Right Side -->
+                <div class="snap-center w-[76vw] md:w-auto flex-shrink-0 bg-white rounded-2xl p-1 border-4 border-cobalt shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col">
+                    <div class="bg-white rounded-xl p-5 md:p-8 flex flex-col h-full relative overflow-hidden">
                         <div class="absolute top-0 right-0 bg-blue-50 text-cobalt-blue font-bold text-[10px] md:text-xs px-3 py-1 rounded-bl-lg shadow-sm">Executive</div>
                         
                         <div class="border border-steel-navy text-steel-navy rounded-lg py-3 px-4 mb-6 text-center shadow-sm">
-                            <h3 class="text-lg font-bold">Executive Risk Overview</h3>
+                            <h3 class="text-lg font-bold leading-tight">Executive Risk Overview</h3>
                         </div>
 
                         <p class="text-slate-mid text-sm mb-6 pb-6 border-b border-gray-100 text-center">A rapid 10-slide deck summarizing the critical anomalies.</p>
@@ -316,37 +359,7 @@
                     </div>
                 </div>
 
-                <!-- Tier 1: Silver (Free Kit) - Starter (Mobile Order: 3, Desktop Order: 1) -->
-                <div class="order-3 md:order-1 snap-start w-[80vw] flex-shrink-0 md:w-auto bg-white rounded-2xl p-1 border-4 border-silver shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 reveal delay-100 flex flex-col group">
-                    <div class="bg-white rounded-xl p-6 md:p-8 flex flex-col h-full relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-slate-100 text-slate-600 font-bold text-[10px] md:text-xs px-3 py-1 rounded-bl-lg shadow-sm">Starter</div>
-                        
-                        <div class="border border-slate-400 text-slate-700 rounded-lg py-3 px-4 mb-6 text-center shadow-sm">
-                            <h3 class="text-lg font-bold">Buyer's Starter Kit</h3>
-                        </div>
-                        
-                        <p class="text-slate-mid text-sm mb-6 pb-6 border-b border-gray-100 text-center">Essential baseline tools to start your evaluation.</p>
-                        
-                        <div class="text-4xl font-extrabold text-slate-700 mb-6 text-center">Free</div>
-                        
-                        <ul class="space-y-4 text-sm text-slate-dark mb-8 flex-grow">
-                            <li class="flex items-start gap-3"><span class="text-slate-500 font-bold mt-0.5">✓</span> <span><strong class="text-slate-800">One Major Contract Red Flag:</strong> A hidden penalty clause builders use to trap your capital.</span></li>
-                            <li class="flex items-start gap-3"><span class="text-slate-500 font-bold mt-0.5">✓</span> <span><strong class="text-slate-800">Negotiation Cheat Sheet:</strong> 5 questions to ask the sales team.</span></li>
-                            <li class="flex items-start gap-3"><span class="text-slate-500 font-bold mt-0.5">✓</span> <span><strong class="text-slate-800">Master Report TOC:</strong> See what the Complete Intelligence Suite uncovers.</span></li>
-                        </ul>
-
-                        <div class="mt-auto pt-6 border-t border-gray-100 bg-slate-50 -mx-6 md:-mx-8 -mb-6 md:-mb-8 p-6 md:p-8 rounded-b-xl">
-                            <form onsubmit="submitStarterKit(event, this)" class="flex flex-col gap-3">
-                                <input type="hidden" name="lead_type" value="Starter_Kit_Aveline">
-                                <input type="email" name="email" placeholder="Enter email for instant access" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-slate-500 text-sm">
-                                <button type="submit" class="bg-slate-700 text-white w-full py-3 rounded-md font-bold text-sm hover:bg-slate-800 transition shadow-md">Unlock Free Kit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-            
         </div>
     </section>
 
@@ -513,7 +526,7 @@
             });
         }
 
-        // Scroll Animation Observer
+        // Scroll Animation Observer for Reveal Elements
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -524,6 +537,30 @@
             });
         }, observerOptions);
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Auto-Snap Mobile Carousel Script
+        const pricingCarousel = document.getElementById('pricing-carousel');
+        const goldCard = document.getElementById('gold-card');
+        let hasAutoScrolled = false;
+
+        const carouselObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Only trigger on mobile viewports (<768px) and only trigger once
+                if (entry.isIntersecting && !hasAutoScrolled && window.innerWidth < 768) {
+                    hasAutoScrolled = true;
+                    // Wait 500ms so the user sees the starting position before the slide happens
+                    setTimeout(() => {
+                        const scrollPos = goldCard.offsetLeft - (pricingCarousel.clientWidth / 2) + (goldCard.clientWidth / 2);
+                        pricingCarousel.scrollTo({ left: scrollPos, behavior: 'smooth' });
+                    }, 500); 
+                    carouselObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 }); // Fire when 50% of the pricing section is visible
+
+        if (pricingCarousel && goldCard) {
+            carouselObserver.observe(pricingCarousel);
+        }
 
         // Form Submit: Starter Kit (Free Tier)
         function submitStarterKit(event, form) {
