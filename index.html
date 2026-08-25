@@ -49,6 +49,13 @@
         summary::-webkit-details-marker { display: none; }
         .modal-open { overflow: hidden; }
         
+        /* Scroll Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
         /* Smooth Entrance Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
@@ -187,13 +194,13 @@
     <!-- Project Reports Grid -->
     <section id="projects" class="py-20 bg-slate-light border-y border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 reveal">
                 <h2 class="text-3xl font-extrabold text-steel-navy mb-3">Project Reports</h2>
                 <p class="text-slate-mid">Select a development below to review our independent assessment and contract breakdown briefs.</p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <!-- Card 1: Godrej Aveline -->
-                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 overflow-hidden flex flex-col justify-between">
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 overflow-hidden flex flex-col justify-between reveal delay-100">
                     <div>
                         <div class="relative h-64 bg-slate-100 overflow-hidden group">
                             <img src="assets/aveline.webp" alt="Godrej Aveline" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -216,7 +223,7 @@
                 </div>
 
                 <!-- Card 2: Sattva City -->
-                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 overflow-hidden flex flex-col justify-between">
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 overflow-hidden flex flex-col justify-between reveal delay-200">
                     <div>
                         <div class="relative h-64 bg-slate-100 overflow-hidden group">
                             <img src="assets/sattva-city.webp" alt="Sattva City" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -245,13 +252,13 @@
     <section id="about" class="py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
+                <div class="reveal">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-steel-navy mb-6">Zero Commissions and Total Neutrality</h2>
                     <p class="text-lg text-slate-mid leading-relaxed mb-6">
                         We work exclusively for you. We take zero commissions from property developers, allowing us to provide the unvarnished facts about your purchase. Our focus is on data transparency, institutional neutrality, and providing you with the clarity needed to move forward with confidence.
                     </p>
                 </div>
-                <div class="bg-slate-light p-12 rounded-2xl border border-gray-200 flex items-center justify-center h-96 relative overflow-hidden shadow-inner">
+                <div class="bg-slate-light p-12 rounded-2xl border border-gray-200 flex items-center justify-center h-96 relative overflow-hidden shadow-inner reveal delay-100">
                     <div class="absolute inset-0 bg-gradient-to-tr from-slate-100 to-white opacity-50"></div>
                     <svg class="w-56 h-56 text-steel-navy drop-shadow-sm relative z-10 transition-transform duration-500 hover:scale-105" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M50 10 L85 25 V50 C85 70 50 90 50 90 C50 90 15 70 15 50 V25 L50 10 Z" fill="#F8FAFC" stroke="#1B365D" stroke-width="4" stroke-linejoin="round"/>
@@ -266,19 +273,19 @@
     <!-- How It Works (Process) with Animations -->
     <section id="process" class="py-20 bg-slate-light border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-extrabold text-steel-navy mb-12">How It Works</h2>
+            <h2 class="text-3xl font-extrabold text-steel-navy mb-12 reveal">How It Works</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto relative">
-                <div class="relative z-10 bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div class="relative z-10 bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl reveal delay-100">
                     <div class="w-14 h-14 bg-cobalt-blue rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl shadow-md">1</div>
                     <h4 class="font-bold text-steel-navy text-lg mb-2">Choose Your Report</h4>
                     <p class="text-sm text-slate-mid">Select your project and pick the intelligence tier that fits your stage of buying.</p>
                 </div>
-                <div class="relative z-10 bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div class="relative z-10 bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl reveal delay-200">
                     <div class="w-14 h-14 bg-cobalt-blue rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl shadow-md">2</div>
                     <h4 class="font-bold text-steel-navy text-lg mb-2">Secure Checkout</h4>
                     <p class="text-sm text-slate-mid">Process your payment safely via our encrypted payment gateway (Razorpay).</p>
                 </div>
-                <div class="relative z-10 bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div class="relative z-10 bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl reveal delay-300">
                     <div class="w-14 h-14 bg-cobalt-blue rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl shadow-md">3</div>
                     <h4 class="font-bold text-steel-navy text-lg mb-2">Within 24 Hours</h4>
                     <p class="text-sm text-slate-mid">Your comprehensive report is securely delivered straight to your email.</p>
@@ -290,13 +297,13 @@
     <!-- Insights & Guides Section -->
     <section id="insights" class="py-24 bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 reveal">
                 <h2 class="text-3xl font-extrabold text-steel-navy mb-3">Home Buyer Insights & Guides</h2>
                 <p class="text-slate-mid max-w-2xl mx-auto">Expert breakdowns to help you navigate builder contracts, RERA data, and property negotiations.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- Guide Card 1 -->
-                <div class="bg-slate-light rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between">
+                <div class="bg-slate-light rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between reveal delay-100">
                     <div>
                         <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-cobalt-blue mb-6">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
@@ -309,7 +316,7 @@
                     </a>
                 </div>
                 <!-- Guide Card 2 -->
-                <div class="bg-slate-light rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between">
+                <div class="bg-slate-light rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between reveal delay-200">
                     <div>
                         <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-cobalt-blue mb-6">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
@@ -322,7 +329,7 @@
                     </a>
                 </div>
                 <!-- Guide Card 3 -->
-                <div class="bg-slate-light rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between">
+                <div class="bg-slate-light rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between reveal delay-300">
                     <div>
                         <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-cobalt-blue mb-6">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
@@ -340,7 +347,7 @@
 
     <!-- Request Form (Queue) -->
     <section id="queue" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-slate-light border border-gray-200 rounded-2xl p-8 md:p-12 shadow-sm">
+        <div class="bg-slate-light border border-gray-200 rounded-2xl p-8 md:p-12 shadow-sm reveal">
             <h2 class="text-2xl font-bold text-steel-navy mb-3 text-center">Want a Report for Another Project?</h2>
             <p class="text-center text-slate-mid mb-8 text-sm">Submit your project details below. We prioritize our research queue based on buyer demand and government transparency records.</p>
             <form class="flex flex-col gap-4">
@@ -365,9 +372,9 @@
     <!-- FAQs -->
     <section id="faqs" class="py-20 bg-slate-light border-t border-gray-100">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-extrabold text-steel-navy mb-12 text-center">Frequently Asked Questions</h2>
+            <h2 class="text-3xl font-extrabold text-steel-navy mb-12 text-center reveal">Frequently Asked Questions</h2>
             <div class="space-y-4">
-                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200">
+                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200 reveal">
                     <summary class="flex justify-between items-center cursor-pointer p-6 list-none focus:outline-none">
                         <h4 class="font-bold text-steel-navy text-lg pr-4">I have done due diligence from a lawyer. Do I still need this?</h4>
                         <span class="ml-4 flex-shrink-0 text-slate-400 group-open:text-cobalt-blue group-open:rotate-45 transition-transform duration-200">
@@ -378,7 +385,7 @@
                         <span class="font-bold text-slate-dark">Yes, our reports complement your document checks.</span> While your legal team ensures your paperwork is legally binding, we analyze the financial health, contractual alignment, and government progress data so you know what optimization opportunities exist before you sign. We provide your advisors with the specific data points they need to represent your interests.
                     </div>
                 </details>
-                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200">
+                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200 reveal">
                     <summary class="flex justify-between items-center cursor-pointer p-6 list-none focus:outline-none">
                         <h4 class="font-bold text-steel-navy text-lg pr-4">I already have an advisory team. Why do I need this?</h4>
                         <span class="ml-4 flex-shrink-0 text-slate-400 group-open:text-cobalt-blue group-open:rotate-45 transition-transform duration-200">
@@ -389,7 +396,7 @@
                         Our intelligence dossiers provide the data background your advisory team needs to advise you effectively. While they focus on the legal title, we provide the economic context and project progress benchmarks.
                     </div>
                 </details>
-                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200">
+                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200 reveal">
                     <summary class="flex justify-between items-center cursor-pointer p-6 list-none focus:outline-none">
                         <h4 class="font-bold text-steel-navy text-lg pr-4">Does this include a physical site inspection?</h4>
                         <span class="ml-4 flex-shrink-0 text-slate-400 group-open:text-cobalt-blue group-open:rotate-45 transition-transform duration-200">
@@ -400,7 +407,7 @@
                         No, our service is a comprehensive data transparency and document assessment. We evaluate the developer's contracts, public records, and RERA timeline history without conducting physical site visits.
                     </div>
                 </details>
-                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200">
+                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200 reveal">
                     <summary class="flex justify-between items-center cursor-pointer p-6 list-none focus:outline-none">
                         <h4 class="font-bold text-steel-navy text-lg pr-4">Where do you source your data?</h4>
                         <span class="ml-4 flex-shrink-0 text-slate-400 group-open:text-cobalt-blue group-open:rotate-45 transition-transform duration-200">
@@ -411,7 +418,7 @@
                         We extract and synthesize data directly from official government real estate registries and public developer filings.
                     </div>
                 </details>
-                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200">
+                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200 reveal">
                     <summary class="flex justify-between items-center cursor-pointer p-6 list-none focus:outline-none">
                         <h4 class="font-bold text-steel-navy text-lg pr-4">What if the report doesn't find any major concerns?</h4>
                         <span class="ml-4 flex-shrink-0 text-slate-400 group-open:text-cobalt-blue group-open:rotate-45 transition-transform duration-200">
@@ -422,7 +429,7 @@
                         Finding zero concerns is the best possible outcome. You are paying for certainty before deploying capital. A clean report provides the confidence needed to finalize your transaction.
                     </div>
                 </details>
-                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200">
+                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200 reveal">
                     <summary class="flex justify-between items-center cursor-pointer p-6 list-none focus:outline-none">
                         <h4 class="font-bold text-steel-navy text-lg pr-4">I already paid the booking token. Is it too late?</h4>
                         <span class="ml-4 flex-shrink-0 text-slate-400 group-open:text-cobalt-blue group-open:rotate-45 transition-transform duration-200">
@@ -433,7 +440,7 @@
                         Absolutely not. Our assessment gives you the exact insight needed before signing the final Agreement for Sale.
                     </div>
                 </details>
-                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200">
+                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200 reveal">
                     <summary class="flex justify-between items-center cursor-pointer p-6 list-none focus:outline-none">
                         <h4 class="font-bold text-steel-navy text-lg pr-4">Is my request kept completely confidential?</h4>
                         <span class="ml-4 flex-shrink-0 text-slate-400 group-open:text-cobalt-blue group-open:rotate-45 transition-transform duration-200">
@@ -444,7 +451,7 @@
                         Absolutely. Your identity and inquiries are strictly private and never shared with developers or third parties.
                     </div>
                 </details>
-                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200">
+                <details class="group bg-white rounded-xl border border-gray-200 shadow-sm open:bg-white transition-colors duration-200 reveal">
                     <summary class="flex justify-between items-center cursor-pointer p-6 list-none focus:outline-none">
                         <h4 class="font-bold text-steel-navy text-lg pr-4">Once I have the report, what do I actually do with it?</h4>
                         <span class="ml-4 flex-shrink-0 text-slate-400 group-open:text-cobalt-blue group-open:rotate-45 transition-transform duration-200">
@@ -580,6 +587,18 @@
                 if (event.target === document.getElementById(id)) { closeModal(id); }
             });
         }
+
+        // Scroll Animation Observer for Reveal Elements
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 
     <!-- Centralized Form Handler Script -->
