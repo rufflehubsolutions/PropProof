@@ -27,20 +27,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS with Exact Brand Book Palette -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { 
-                        'steel-navy': '#1B365D', 
-                        'cobalt-blue': '#2563EB', 
-                        'slate-light': '#F8FAFC', 
-                        'slate-mid': '#64748B', 
-                        'slate-dark': '#475569' 
-                    },
+                    colors: { 'steel-navy': '#1B365D', 'cobalt-blue': '#2563EB', 'slate-light': '#F8FAFC', 'slate-mid': '#64748B', 'slate-dark': '#475569' },
                     keyframes: {
                         bounceLeft: {
                             '0%, 100%': { transform: 'translateX(0)' },
@@ -169,18 +163,9 @@
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-steel-navy leading-tight mb-6">
             Evaluating <span class="text-cobalt-blue">Sattva City</span>? Review Our Independent Project Dossier.
         </h1>
-        <p class="text-base md:text-lg text-slate-mid mb-8 max-w-3xl mx-auto leading-relaxed">
+        <p class="text-base md:text-lg text-slate-mid mb-10 max-w-3xl mx-auto leading-relaxed">
             Our data-transparency assessment highlights true land acquisition structures, RERA escrow compliance metrics, and structural construction timelines for informed decision-making.
         </p>
-
-        <!-- Integrated Technical Asset Context Image (.webp) -->
-        <div class="max-w-xl mx-auto mb-8">
-            <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm bg-white p-2">
-                <img src="../assets/sattva-city.webp" alt="Sattva City Master Plan and Zoning Context" class="w-full h-auto object-cover rounded-lg max-h-[260px]">
-                <p class="text-[11px] text-slate-400 text-center mt-2 italic font-medium">Technical Master Plan & Boundary Zoning Context — Sattva City (~49 Acres)</p>
-            </div>
-        </div>
-
         <a href="#dashboard" class="inline-block bg-cobalt-blue text-white text-base px-8 py-3.5 rounded-md font-bold hover:bg-blue-700 shadow-md hover:shadow-xl transform hover:-translate-y-0.5 transition">
             View Project Intelligence
         </a>
